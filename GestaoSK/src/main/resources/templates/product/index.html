@@ -1,0 +1,44 @@
+
+<div th:replace="compartilhado/header"></div>
+        
+                <div class="container-fluid">
+                    <h1 class="m-2 text-primary">Lista de Produtos</h1>
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <a href="/products/novo" class="btn btn-primary" style="margin-right: 20px;">Adicionar</a>                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th>Preço</th>
+                                            <th>Quantidade</th>
+                                            <th>Descrição</th>                                                                                        
+                                            <th></th>
+                                            <th></th>                                            
+                                        </tr>
+                                    </thead>                                    
+                                    <tbody>
+                                        <tr th:each="products : ${product}">
+                                            <td th:text="${products.id}"></td>
+                                            <td th:text="${products.name}"></td>
+                                            <td th:text="${products.price}"></td>
+                                            <td th:text="${products.quantity}"></td>
+                                            <td th:text="${products.description}"></td>
+                                            <td><a th:href="@{'/products/' + ${products.id}}" class="btn btn-warning">Editar</td>
+                                            <td><a href="#" th:onclick= "'if(confirm(\'Confirma a exclusão?\')) {window.location.href = \'' + @{/products/{id}(id=${products.id})} + '/excluir\'}'" class="btn btn-danger">Excluir</td>                                                                                       
+                                        </tr>                                                                           
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               
+
+<div th:replace="compartilhado/footer"></div>

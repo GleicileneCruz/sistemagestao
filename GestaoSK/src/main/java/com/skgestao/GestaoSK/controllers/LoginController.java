@@ -30,7 +30,7 @@ public class LoginController {
     public String logar(Model model, Users admParam, String lembrar, HttpServletResponse response) throws IOException{ 
         Users user = this.repo.login(admParam.getEmail(), admParam.getSenha());
         if(user != null){
-            int tempoLogado = (60*60); //1 hora de cookie
+            int tempoLogado = (60*60*24); //24 horas de cookie
             if(lembrar != null) tempoLogado = (60*60*24*365); // 1 ano de cookie
         CookieService.setCookie(response, "usuariosId", String.valueOf(user.getId()), tempoLogado);
         CookieService.setCookie(response, "nomeUsuario", String.valueOf(user.getNome()), tempoLogado);
