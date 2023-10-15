@@ -1,0 +1,43 @@
+
+<div th:replace="compartilhado/header"></div>
+        
+                <div class="container-fluid">
+                    <h1 class="h3 mb-2 text-gray-800">USUARIOS</h1>
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <a href="/users/novo" class="btn btn-primary" style="margin-right: 20px;">Adicionar</a>
+                            <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block">Lista de Usuários</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th>Sobrenome</th>
+                                            <th>Email</th>                                            
+                                            <th></th>
+                                            <th></th>                                            
+                                        </tr>
+                                    </thead>                                    
+                                    <tbody>
+                                        <tr th:each="users : ${user}">
+                                            <td th:text="${users.id}"></td>
+                                            <td th:text="${users.nome}"></td>
+                                            <td th:text="${users.sobrenome}"></td>
+                                            <td th:text="${users.email}"></td>
+                                            <td><a th:href="@{'/users/' + ${users.id}}" class="btn btn-warning">Editar</td>
+                                            <td><a href="#" th:onclick= "'if(confirm(\'Confirma a exclusão?\')) {window.location.href = \'' + @{/users/{id}(id=${users.id})} + '/excluir\'}'" class="btn btn-danger">Excluir</td>                                                                                       
+                                        </tr>                                                                           
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               
+
+<div th:replace="compartilhado/footer"></div>
