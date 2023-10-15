@@ -1,0 +1,38 @@
+
+<div th:replace="compartilhado/header"></div>
+        
+                <div class="container-fluid">
+                    <h1 class="m-2 text-primary">Lista de Categorias</h1>
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <a href="/categories/novo" class="btn btn-primary" style="margin-right: 20px;">Adicionar</a>                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>                                                                                       
+                                            <th></th>
+                                            <th></th>                                            
+                                        </tr>
+                                    </thead>                                    
+                                    <tbody>
+                                        <tr th:each="categories : ${category}">
+                                            <td th:text="${categories.id}"></td>
+                                            <td th:text="${categories.name}"></td>                                            
+                                            <td><a th:href="@{'/categories/' + ${categories.id}}" class="btn btn-warning">Editar</td>
+                                            <td><a href="#" th:onclick= "'if(confirm(\'Confirma a exclusão?\')) {window.location.href = \'' + @{/categories/{id}(id=${categories.id})} + '/excluir\'}'" class="btn btn-danger">Excluir</td>                                                                                       
+                                        </tr>                                                                           
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               
+
+<div th:replace="compartilhado/footer"></div>

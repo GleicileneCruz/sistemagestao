@@ -1,0 +1,29 @@
+
+<div th:replace="compartilhado/header"></div>
+        
+                <div class="container-fluid">                    
+                    
+                    <div class="card shadow mb-4">
+                        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 mb-4 text-primary">CADASTRAR CATEGORIA</h1>
+                                    </div>
+                                    <form class="user" method="POST" action="/categories/criar" onsubmit="return confirm('Confirma o cadastro?')">
+                                        <div class="form-group row">
+                                            <div class="col-lg-12 mb-3 mb-sm-0">                                                
+                                                <input type="text" class="form-control" required id="name" name="name"
+                                                    placeholder="Nome">
+                                            </div> 
+                                        </div>                                           
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>                                                                
+                                    </form>
+                                </div>
+                            </div>
+                     </div>
+
+                </div>
+               
+
+<div th:replace="compartilhado/footer"></div>

@@ -2,11 +2,12 @@ package com.skgestao.GestaoSK.model;
 
 import java.io.Serializable;
 import java.time.Instant;
+
 import java.util.Objects;
+
 
 import javax.persistence.*;
 
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Entity
 @Table(name = "tb_product")
