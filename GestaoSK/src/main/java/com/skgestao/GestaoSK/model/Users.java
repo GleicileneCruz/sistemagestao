@@ -3,7 +3,7 @@ package com.skgestao.GestaoSK.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="tb_users")
+@Table(name ="tb_user")
 public class Users {
 
     @Id

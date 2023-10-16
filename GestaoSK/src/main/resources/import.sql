@@ -1,8 +1,8 @@
-INSERT INTO tb_users (nome, sobrenome, email, senha) VALUES ('Fabiano', 'Oliveira', 'admin@gmail.com', '123456');
-INSERT INTO tb_users (nome, sobrenome, email, senha) VALUES ('Neia', 'Santos', 'neia@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
-INSERT INTO tb_users (nome, sobrenome, email, senha) VALUES ('Cilene', 'Cruz', 'cilene@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
-INSERT INTO tb_users (nome, sobrenome, email, senha) VALUES ('Ana Maria', 'Souza', 'anam@gmail.com', '123456');
-INSERT INTO tb_users (nome, sobrenome, email, senha) VALUES ('João Carlos', 'Lumbier', 'joao@gmail.com', '123456');
+INSERT INTO tb_user (nome, sobrenome, email, senha) VALUES ('Fabiano', 'Oliveira', 'admin@gmail.com', '123456');
+INSERT INTO tb_user (nome, sobrenome, email, senha) VALUES ('Neia', 'Santos', 'neia@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user (nome, sobrenome, email, senha) VALUES ('Cilene', 'Cruz', 'cilene@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user (nome, sobrenome, email, senha) VALUES ('Ana Maria', 'Souza', 'anam@gmail.com', '123456');
+INSERT INTO tb_user (nome, sobrenome, email, senha) VALUES ('João Carlos', 'Lumbier', 'joao@gmail.com', '123456');
 
 INSERT INTO tb_product (name, price, date, description, quantity) VALUES ('Batom', 1, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2);
 INSERT INTO tb_product (name, price, date, description, quantity) VALUES ('Colar', 7, TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 3);
