@@ -1,5 +1,5 @@
 
-<div th:replace="compartilhado/header"></div>
+<div th:replace="~{compartilhado/header}"></div>
         
                 <div class="container-fluid">                    
                     
@@ -10,8 +10,8 @@
                                     <div class="text-center">
                                         <h1 class="h4 mb-4 text-primary">CADASTRO USUARIO</h1>
                                     </div>
-                                    <form class="user" method="POST" action="/users/criar" onsubmit="return confirm('Confirma o cadastro?')">
-                                        <div class="form-group row">
+                                    <form class="user" method="POST" id="novoUsuarioForm" th:action="@{'/users/criar'}" onsubmit="return confirm('Confirma o cadastro?')">
+                                       <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">                                                
                                                 <input type="text" class="form-control" required id="nome" name="nome"
                                                     placeholder="Nome">
@@ -31,17 +31,37 @@
                                                     required id="senha" name="senha" placeholder="Senha">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="password" class="form-control"
-                                                    required id="repeatPassword" name="senha" placeholder="Repita a senha">
+                                                <input type="password" class="form-control" required id="repeatPassword" name="senha" placeholder="Repita a senha">
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Cadastrar</button>                                                                
+                                        <div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger" role="alert"></div>
+                                        <button type="submit" class="btn btn-primary" onclick="return validarSenhas();">Cadastrar</button>
+                                        <button type="button" class="btn btn-danger" onclick="window.history.back();">Cancelar</button>
                                     </form>
                                 </div>
                             </div>
                      </div>
 
                 </div>
-               
+<script>
+    function validarSenhas() {
+        var senha = document.getElementById("senha").value;
+        var repeatPassword = document.getElementById("repeatPassword").value;
 
-<div th:replace="compartilhado/footer"></div>
+        if (senha !== repeatPassword) {
+            alert("As senhas não coincidem. Por favor, corrija.");
+            return false;
+        }
+
+        if (!senha.match(/\d{6,}/)) {
+            alert("A senha deve conter no mínimo 6 números.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+
+<div th:replace="~{compartilhado/footer}"></div>
+

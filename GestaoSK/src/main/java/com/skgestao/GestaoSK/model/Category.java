@@ -1,8 +1,15 @@
 package com.skgestao.GestaoSK.model;
 
+import com.skgestao.GestaoSK.model.exceptions.DatabaseException;
+import com.skgestao.GestaoSK.model.exceptions.ResourceNotFoundException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
+
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -20,11 +27,11 @@ public class Category implements Serializable{
 	private Instant createdAt;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant updateAt;
-	
-	// @ManyToMany(mappedBy = "categories")
-	// private Set<Products> products = new HashSet<>();
-	
+	private Instant updatedAt;
+
+	 @ManyToMany(mappedBy = "categories")
+	 private Set<Products> products = new HashSet<>();
+
 	public Category() {
 	}
 
@@ -56,7 +63,7 @@ public class Category implements Serializable{
 	}
 
 	public Instant getUpdateAt() {
-		return updateAt;
+		return updatedAt;
 	}
 
 	@PrePersist
@@ -66,12 +73,12 @@ public class Category implements Serializable{
 	
 	@PreUpdate
 	public void preUpdate() {
-		updateAt = Instant.now();
+		updatedAt = Instant.now();
 	}
 	
-	// public Set<Products> getProducts() {
-	// 	return products;
-	// }
+	 public Set<Products> getProducts() {
+	 	return products;
+	 }
 	
 	@Override
 	public int hashCode() {
@@ -90,16 +97,5 @@ public class Category implements Serializable{
 		return Objects.equals(id, other.id);
 	}
 
-	// public void delete(int id) {
-	// 	try {
-	// 		categoryRepo.deleteById(id);
-	// 	}
-	// 	catch (EmptyResultDataAccessException e) {
-	// 		throw new ResourceNotFoundException("Id not found" + id);
-	// 	}
-	// 	catch (DataIntegrityViolationException e) {
-	// 		throw new DatabaseException("Violacao Integridade");
-	// 	}
-	// }
-	
+
 }

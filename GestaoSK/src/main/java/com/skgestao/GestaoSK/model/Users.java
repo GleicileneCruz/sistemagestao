@@ -12,10 +12,10 @@ public class Users {
     private int id;
 
     @Column(length = 120, nullable = false)
-    private String nome; 
+    private String nome;
 
     @Column(length = 120, nullable = false)
-    private String sobrenome;    
+    private String sobrenome;
     
 
     @Column(unique = true, nullable = false)

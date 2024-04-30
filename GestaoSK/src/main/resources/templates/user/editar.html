@@ -10,7 +10,9 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-primary mb-4">ALTERAR USUARIO</h1>
                                     </div>
-                                    <form class="user" method="POST" th:action="@{'/users/' + ${users?.id} + '/atualizar'}">
+
+                                    <form id="alterarUsuarioForm" class="user" method="POST" th:action="@{'/users/' + ${users?.id} + '/atualizar'}">
+
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">                                                
                                                 <input type="text" class="form-control" th:value="${users?.nome}" required id="nome" name="nome"
@@ -21,27 +23,39 @@
                                                     placeholder="Sobrenome">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" th:value="${users?.email}" required id="email" name="email"
-                                                placeholder="Email">
-                                        </div>
                                         <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <input type="email" class="form-control" th:value="${users?.email}" required id="email" name="email"
+                                                       placeholder="Email">
+                                            </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <input type="password" class="form-control" th:value="${users?.senha}"
-                                                    required id="senha" name="senha" placeholder="Senha">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="password" class="form-control" th:value="${users?.senha}"
-                                                    required id="repeatPassword" name="senha" placeholder="Repita a senha">
+                                                       required id="senha" name="senha" placeholder="Senha">
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Alterar</button>                                                                
+                                        <div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger" role="alert"></div>
+                                        <button type="submit" class="btn btn-primary" onclick="return validarSenhas();">Alterar</button>
+                                        <button type="button" class="btn btn-danger" onclick="window.history.back();">Cancelar</button>
+
                                     </form>
                                 </div>
                             </div>
                      </div>
 
                 </div>
-               
+
+<script>
+    function validarSenhas() {
+        var senha = document.getElementById("senha").value;
+
+        if (senha.length < 6 || repeatPassword.length < 6) {
+            alert("A senha deve conter no mínimo 6 caracteres.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
 
 <div th:replace="compartilhado/footer"></div>

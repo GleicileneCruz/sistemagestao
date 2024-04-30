@@ -1,9 +1,14 @@
 package com.skgestao.GestaoSK.model;
 
 import java.io.Serializable;
+
+import java.text.NumberFormat;
 import java.time.Instant;
 
+import java.util.HashSet;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.Set;
 
 
 import javax.persistence.*;
@@ -13,7 +18,7 @@ import javax.persistence.*;
 @Table(name = "tb_product")
 public class Products implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -26,28 +31,35 @@ public class Products implements Serializable{
     @Column(columnDefinition = "TEXT")
 	private String description;
 
-	@Column(nullable = false)	
+	@Column(nullable = false)
 	private Double price;
 
+	@Column(name = "price_formatted")
+	private String priceFormatted;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant date;
-	
-	// @ManyToMany
-	// @JoinTable(name = "tb_product_category",
-	// 		joinColumns = @JoinColumn(name = "product_id"),
-	// 		inverseJoinColumns = @JoinColumn(name = "category_id"))
-	// Set<Category> categories = new HashSet<>();
+
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
+	}
+
+	@ManyToMany
+	 @JoinTable(name = "tb_product_category",
+	 		joinColumns = @JoinColumn(name = "product_id"),
+	 		inverseJoinColumns = @JoinColumn(name = "category_id"))
+	 Set<Category> categories = new HashSet<>();
 	
 	public Products() {
 	}
 	
-	public Products(Integer id, String name, Integer quantity, String description, Double price, Instant date) {
+	public Products(Integer id, String name, Integer quantity, String description, Double price, String priceFormatted, Instant date) {
 		this.id = id;
 		this.name = name;
         this.quantity = quantity;
 		this.description = description;
-		this.price = price;		
+		this.price = price;
+		this.priceFormatted = priceFormatted;
 		this.date = date;
 	}
 
@@ -90,7 +102,14 @@ public class Products implements Serializable{
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
+
+	public String getPriceFormatted() {
+		return priceFormatted;
+	}
+
+	public void setPriceFormatted(String priceFormatted) {
+		this.priceFormatted = priceFormatted;
+	}
 
 	public Instant getDate() {
 		return date;
@@ -100,9 +119,14 @@ public class Products implements Serializable{
 		this.date = date;
 	}
 
-	// public Set<Category> getCategories() {
-	// 	return categories;
-	// }
+	 public Set<Category> getCategories() {
+	 	return categories;
+	 }
+
+	public String getFormattedPrice() {
+		NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+		return format.format(price);
+	}
 
 	@Override
 	public int hashCode() {
