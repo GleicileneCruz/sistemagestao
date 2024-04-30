@@ -34,8 +34,7 @@ public class Products implements Serializable{
 	@Column(nullable = false)
 	private Double price;
 
-	@Column(name = "price_formatted")
-	private String priceFormatted;
+
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant date;
@@ -53,13 +52,12 @@ public class Products implements Serializable{
 	public Products() {
 	}
 	
-	public Products(Integer id, String name, Integer quantity, String description, Double price, String priceFormatted, Instant date) {
+	public Products(Integer id, String name, Integer quantity, String description, Double price, Instant date) {
 		this.id = id;
 		this.name = name;
         this.quantity = quantity;
 		this.description = description;
 		this.price = price;
-		this.priceFormatted = priceFormatted;
 		this.date = date;
 	}
 
@@ -101,14 +99,6 @@ public class Products implements Serializable{
 
 	public void setPrice(Double price) {
 		this.price = price;
-	}
-
-	public String getPriceFormatted() {
-		return priceFormatted;
-	}
-
-	public void setPriceFormatted(String priceFormatted) {
-		this.priceFormatted = priceFormatted;
 	}
 
 	public Instant getDate() {
