@@ -1,17 +1,11 @@
 package com.skgestao.GestaoSK.model;
 
-import com.skgestao.GestaoSK.model.exceptions.DatabaseException;
-import com.skgestao.GestaoSK.model.exceptions.ResourceNotFoundException;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
-
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-
-import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_category")

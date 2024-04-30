@@ -33,8 +33,6 @@ public class Products implements Serializable{
 
 	@Column(nullable = false)
 	private Double price;
-
-
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant date;
@@ -113,10 +111,6 @@ public class Products implements Serializable{
 	 	return categories;
 	 }
 
-	public String getFormattedPrice() {
-		NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-		return format.format(price);
-	}
 
 	@Override
 	public int hashCode() {
