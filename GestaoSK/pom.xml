@@ -14,8 +14,8 @@
 	<name>GestaoSK</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
-		<source>11</source>
+		<java.version>1.8</java.version>
+		<source>1.8</source>
 	</properties>
 	<dependencies>
 		<dependency>
