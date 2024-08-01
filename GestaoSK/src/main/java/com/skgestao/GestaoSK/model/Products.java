@@ -1,15 +1,11 @@
 package com.skgestao.GestaoSK.model;
 
 import java.io.Serializable;
-
-import java.text.NumberFormat;
 import java.time.Instant;
 
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
-
 
 import javax.persistence.*;
 
