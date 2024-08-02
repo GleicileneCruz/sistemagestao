@@ -9,8 +9,6 @@ import java.util.Locale;
 @SpringBootApplication
 public class GestaoSkApplication {
 
-	public String PORT = System.getenv("PORT");
-
 	public static void main(String[] args) {
 		SpringApplication.run(GestaoSkApplication.class, args);
 
