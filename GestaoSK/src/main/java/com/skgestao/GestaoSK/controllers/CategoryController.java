@@ -28,7 +28,7 @@ public class CategoryController {
     public String index(Model model){
         List<Category> category = (List<Category>)categoryRepo.findAll(Sort.by(Sort.Direction.ASC, "id"));
         model.addAttribute("category", category);      
-        return "/category/index";
+        return "category/index";
 
     }
 
@@ -53,7 +53,7 @@ public class CategoryController {
             return "redirect:/categories";
         }
                    
-        return "/category/editar";
+        return "category/editar";
     }
 
     @PostMapping("/categories/{id}/atualizar")

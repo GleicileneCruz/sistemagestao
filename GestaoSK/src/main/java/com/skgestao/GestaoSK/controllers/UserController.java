@@ -24,13 +24,13 @@ public class UserController {
     public String index(Model model){
         List<Users> user = (List<Users>)repo.findAll(Sort.by(Sort.Direction.ASC, "id"));
         model.addAttribute("user", user);
-        return "/user/index";
+        return "user/index";
 
     }
 
     @GetMapping("/users/novo")
     public String novo(Model model){
-        return "/user/novo";
+        return "user/novo";
     }
 
     @PostMapping("/users/criar")
@@ -38,7 +38,7 @@ public class UserController {
         if (repo.findByEmail(users.getEmail()).isPresent()){
             model.addAttribute("erro", "Email já cadastrado. Insira outro email.");
             model.addAttribute("userForm", users);
-            return "/user/novo";
+            return "user/novo";
         }
         repo.save(users);
         return "redirect:/users";
@@ -54,7 +54,7 @@ public class UserController {
              return "redirect:/users";
         }
                    
-        return "/user/editar";
+        return "user/editar";
     }
 
     @PostMapping("/users/{id}/atualizar")

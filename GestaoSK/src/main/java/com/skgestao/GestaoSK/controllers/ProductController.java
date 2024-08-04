@@ -29,7 +29,7 @@ public class ProductController {
     public String index(Model model){
         List<Products> product = (List<Products>)productRepo.findAll(Sort.by(Sort.Direction.ASC, "id"));
         model.addAttribute("product", product);      
-        return "/product/index";
+        return "product/index";
 
     }
 
@@ -37,7 +37,7 @@ public class ProductController {
     public String novo(Model model){
         List<Category> categories = (List<Category>) categoryRepository.findAll();
         model.addAttribute("categories", categories);
-        return "/product/novo";
+        return "product/novo";
     }
 
     @PostMapping("/products/criar")
@@ -56,7 +56,7 @@ public class ProductController {
              return "redirect:/products";
         }
 
-        return "/product/editar";
+        return "product/editar";
     }
 
     @PostMapping("/products/{id}/atualizar")

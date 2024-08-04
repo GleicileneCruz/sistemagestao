@@ -9,7 +9,7 @@ public class VendaController {
 
     @GetMapping("/vendas")
     public String index(){            
-        return "/venda/index";
+        return "venda/index";
 
     }
 }

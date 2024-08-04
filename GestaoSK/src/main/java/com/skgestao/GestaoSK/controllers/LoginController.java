@@ -23,7 +23,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String index(){        
-        return "/login/index";
+        return "login/index";
     }
 
     @PostMapping("/logar")
@@ -37,7 +37,7 @@ public class LoginController {
            return "redirect:/";
         }
         model.addAttribute("erro", "Usuário ou senha incorretos. Corrija e tente novamente."); 
-        return "/login/index";
+        return "login/index";
     }
 
     @GetMapping("/sair")
