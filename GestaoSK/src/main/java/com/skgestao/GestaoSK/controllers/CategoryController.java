@@ -34,7 +34,7 @@ public class CategoryController {
 
     @GetMapping("/categories/novo")
     public String novo(Model model){             
-        return "/category/novo";
+        return "category/novo";
     }
 
     @PostMapping("/categories/criar")
